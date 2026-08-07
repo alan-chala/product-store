@@ -1,19 +1,13 @@
 import express from "express";
+import * as ProductController from "../controllers/product.controllers.js";
 
 const router = express.Router();
 
-router.get("/api/products", (req, res) => {
-  res.json({ error: false, message: "Hello from the products route!" });
-});
-
-router.post("/api/products", (req, res) => {
-  res.json({ error: false, message: "Product created successfully!" });
-});
-
+router.get("/api/products", ProductController.fetchProducts);
+router.post("/api/products", ProductController.createProduct);
 router.put("/api/products/:id", (req, res) => {
   res.json({ error: false, message: "Product updated successfully!" });
 });
-
 router.delete("/api/products/:id", (req, res) => {
   res.json({ error: false, message: "Product deleted successfully!" });
 });
