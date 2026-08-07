@@ -5,11 +5,7 @@ const router = express.Router();
 
 router.get("/api/products", ProductController.fetchProducts);
 router.post("/api/products", ProductController.createProduct);
-router.put("/api/products/:id", (req, res) => {
-  res.json({ error: false, message: "Product updated successfully!" });
-});
-router.delete("/api/products/:id", (req, res) => {
-  res.json({ error: false, message: "Product deleted successfully!" });
-});
+router.put("/api/products/:id", ProductController.updateProduct);
+router.delete("/api/products/:id", ProductController.deleteProduct);
 
 export default router;
